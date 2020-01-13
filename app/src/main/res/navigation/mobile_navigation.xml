@@ -14,19 +14,19 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.drawnavigation.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_seminars"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.drawnavigation.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_scholarship"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_tools"
         android:name="com.example.drawnavigation.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
+        android:label="@string/menu_partnership"
         tools:layout="@layout/fragment_tools" />
 
     <fragment
