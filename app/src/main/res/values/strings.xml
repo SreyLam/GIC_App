@@ -14,4 +14,6 @@
     <!--    <string name="menu_share">Share</string>-->
     <!--    <string name="menu_send">Send</string>-->
     <string name="hello_blank_fragment" />
+    <string name="empty_data">No Data</string>
+    <string name="search" />
 </resources>

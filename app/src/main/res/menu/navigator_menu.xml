@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:ignore="UnusedNavigation">
+
+    <item
+        android:id="@+id/nav_seminar"
+        android:icon="@drawable/ic_menu_workshops"
+        android:title="@string/menu_seminars" />
+    <item
+        android:id="@+id/nav_scholarship"
+        android:icon="@drawable/ic_menu_scholarship"
+        android:title="@string/menu_scholarship" />
+    <item
+        android:id="@+id/nav_partnership"
+        android:icon="@drawable/ic_menu_partnership"
+        android:title="@string/menu_partnership" />
+
+
+</menu>

@@ -3,24 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+<!--    <group android:checkableBehavior="single">-->
+<!--&lt;!&ndash;        <item&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/nav_home"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:icon="@drawable/ic_menu_camera"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:title="@string/menu_home" />&ndash;&gt;-->
 <!--        <item-->
-<!--            android:id="@+id/nav_home"-->
-<!--            android:icon="@drawable/ic_menu_camera"-->
-<!--            android:title="@string/menu_home" />-->
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_workshops"
-            android:title="@string/menu_seminars" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_scholarship"
-            android:title="@string/menu_scholarship" />
-        <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_partnership"
-            android:title="@string/menu_partnership" />
-    </group>
+<!--            android:id="@+id/nav_gallery"-->
+<!--            android:icon="@drawable/ic_menu_workshops"-->
+<!--            android:title="@string/menu_seminars" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_slideshow"-->
+<!--            android:icon="@drawable/ic_menu_scholarship"-->
+<!--            android:title="@string/menu_scholarship" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_tools"-->
+<!--            android:icon="@drawable/ic_menu_partnership"-->
+<!--            android:title="@string/menu_partnership" />-->
+<!--    </group>-->
 
 <!--    <item android:title="Communicate">-->
 <!--        <menu>-->

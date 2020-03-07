@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_gallery">
+    app:startDestination="@+id/nav_gallery"
+    tools:ignore="UnusedNavigation">
 
 
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.drawnavigation.SeminarsFragment"
+        android:name="com.example.drawnavigation.fragment.SeminarFragment"
         android:label="@string/menu_seminars"
         tools:layout="@layout/fragment_gallery" />
 
