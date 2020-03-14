@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -61,13 +62,19 @@ public class SeminarFragment extends Fragment {
 
         setRequestAPI();
 
+
+
     }
+
+    private static final String TAG = "MyActivity";
+
+
     private void setRequestAPI() {
         String url = "https://gic.itc.edu.kh/api/events";
         RequestHandler requestHandler = new RequestHandler(getContext());
 
 
-        requestHandler.jsonRequest(url, Request.Method.POST, null, null);
+        requestHandler.jsonRequest(url, Request.Method.GET, null, null);
         requestHandler.setResponseListener(new RequestListener() {
 
 
@@ -79,7 +86,7 @@ public class SeminarFragment extends Fragment {
                     try {
 
                         JSONArray jsonArray = data.getJSONArray(Keys.KEY_DATA);
-
+                        Log.v(TAG, "index=");
                         int size = jsonArray.length();
                         if (size == 0) {
                             //  no_data.setVisibility(View.VISIBLE);

@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.drawnavigation.extra.BaseActivity;
+import com.example.drawnavigation.fragment.ScholarshipFragment;
 import com.example.drawnavigation.fragment.SeminarFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -85,12 +86,25 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         switch (item.getItemId()) {
             case R.id.nav_seminar:
 
+
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.container,  new SeminarFragment());
                 ft.commit();
                 drawer.closeDrawers();
 //                intent = new Intent(MainActivity.this, SeminarActivity.class);
                // intent.putExtra(Keys.KEY_EMPLOYEE_ID, employeeID);
+//                startActivity(intent);
+                break;
+            case R.id.nav_scholarship:
+
+                FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
+                ft1.replace(R.id.container,  new ScholarshipFragment());
+                ft1.commit();
+                drawer.closeDrawers();
+
+
+//                intent = new Intent(MainActivity.this, SeminarActivity.class);
+                // intent.putExtra(Keys.KEY_EMPLOYEE_ID, employeeID);
 //                startActivity(intent);
                 break;
         }
