@@ -1,6 +1,5 @@
 package com.example.drawnavigation.fragment;
 
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,8 +30,7 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class SeminarFragment extends Fragment {
-
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private View v ;
     private SeminarAdapter seminarAdapter;
     private ArrayList<SeminarModel> seminarList = new ArrayList<>();
@@ -63,11 +61,9 @@ public class SeminarFragment extends Fragment {
         setRequestAPI();
 
 
-
     }
 
     private static final String TAG = "MyActivity";
-
 
     private void setRequestAPI() {
         String url = "https://gic.itc.edu.kh/api/events";

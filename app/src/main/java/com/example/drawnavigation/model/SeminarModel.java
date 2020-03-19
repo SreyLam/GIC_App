@@ -7,11 +7,11 @@ public class SeminarModel {
     private String detail;
     private String datetime;
 
-    public SeminarModel(){
+//    public SeminarModel(){
+//
+//    }
 
-    }
-
-    public SeminarModel(String name, String detail, String image, String datetime) {
+    public SeminarModel() {
 //        this.id = id;
         this.name = name;
         this.detail = detail;

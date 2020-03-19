@@ -1,19 +1,21 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="20dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".fragment.SeminarFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <!--<ProgressBar-->
-
-    <!--android:id="@+id/pbHeaderProgress"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_gravity="center">-->
-
-    <!--</ProgressBar>-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,11 +25,14 @@
         android:visibility="gone"
         android:id="@+id/no_data_noticeboard"
         android:text="@string/empty_data" />
+    <!--<ProgressBar-->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none" />
+    <!--android:id="@+id/pbHeaderProgress"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center">-->
 
-</RelativeLayout>
+    <!--</ProgressBar>-->
+    </LinearLayout>
+
+</FrameLayout>

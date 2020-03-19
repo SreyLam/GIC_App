@@ -81,10 +81,6 @@ public class ScholarshipFragment extends Fragment {
         mListadapter = new ListAdapter(data);
         mRecyclerView.setAdapter(mListadapter);
 
-
-
-
-
         get_response_text=view.findViewById(R.id.get_respone_data);
 
         sendGetRequest();
@@ -95,10 +91,6 @@ public class ScholarshipFragment extends Fragment {
 //                sendGetRequest();
 //            }
 //        });
-
-
-
-
         return view;
     }
     private TextView get_response_text,post_response_text;
@@ -157,9 +149,5 @@ public class ScholarshipFragment extends Fragment {
 // add it to the RequestQueue
         queue.add(getRequest);
     }
-
-
-
-
 
 }
