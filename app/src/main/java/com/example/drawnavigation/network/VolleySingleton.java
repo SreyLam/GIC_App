@@ -1,5 +1,9 @@
 package com.example.drawnavigation.network;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.util.LruCache;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
@@ -14,31 +18,32 @@ public class VolleySingleton {
     private static VolleySingleton volleyInstance=null;
     private ImageLoader mImageLoader;
     private RequestQueue mRequestQueue;
+    private static Context ctx;
 
 
-    private VolleySingleton()
+    private VolleySingleton(Context context)
     {
         mRequestQueue= Volley.newRequestQueue(Applications.getAppInstance());
 
+        mImageLoader=new ImageLoader(mRequestQueue, new ImageLoader.ImageCache() {
+            private LruCache<String, Bitmap>
+                    cache=new LruCache<>((int)(Runtime.getRuntime().maxMemory()/1024)/8);
+            @Override
+            public Bitmap getBitmap(String url) {
+                return cache.get(url);
+            }
 
-//        mImageLoader=new ImageLoader(mRequestQueue, new ImageLoader.ImageCache() {
-//            private LruCache<String, Bitmap>
-//                    cache=new LruCache<>((int)(Runtime.getRuntime().maxMemory()/1024)/8);
-//            @Override
-//            public Bitmap getBitmap(String url) {
-//                return cache.get(url);
-//            }
-//
-//            @Override
-//            public void putBitmap(String url, Bitmap bitmap) {
-//                cache.put(url,bitmap);
-//            }
-//        });
+            @Override
+            public void putBitmap(String url, Bitmap bitmap) {
+                cache.put(url,bitmap);
+            }
+        });
     }
-    public static VolleySingleton getInstance(){
+
+    public static VolleySingleton getInstance(Context ctx){
         if(volleyInstance==null)
         {
-            volleyInstance=new VolleySingleton();
+            volleyInstance=new VolleySingleton(ctx);
         }
         return volleyInstance;
     }

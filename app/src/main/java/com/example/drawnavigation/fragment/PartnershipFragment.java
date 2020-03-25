@@ -22,7 +22,11 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.drawnavigation.R;
 import com.example.drawnavigation.adapters.PartnershipAdapter;
+import com.example.drawnavigation.extra.Keys;
+import com.example.drawnavigation.extra.RequestHandler;
+import com.example.drawnavigation.extra.RequestListener;
 import com.example.drawnavigation.model.SeminarModel;
+import com.example.drawnavigation.network.VolleySingleton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,7 +43,7 @@ public class PartnershipFragment extends Fragment {
     private View view;
     private ImageView mImageViewEmpty;
     private PartnershipAdapter partnershipAdapter;
-    private ArrayList<SeminarModel> partnershipList = new ArrayList<>();
+    private ArrayList<SeminarModel> dataList = new ArrayList<>();
 
     public PartnershipFragment() {
         // Required empty public constructor
@@ -50,7 +54,7 @@ public class PartnershipFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view  = inflater.inflate(R.layout.fragment_scholarship, container, false);
+        View view  = inflater.inflate(R.layout.fragment_partnership, container, false);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
@@ -66,7 +70,7 @@ public class PartnershipFragment extends Fragment {
 
     }
 
-//    }
+
     private TextView get_response_text,post_response_text;
     private void sendGetRequest() {
 
@@ -101,4 +105,5 @@ public class PartnershipFragment extends Fragment {
 // add it to the RequestQueue
         queue.add(getRequest);
     }
+
 }

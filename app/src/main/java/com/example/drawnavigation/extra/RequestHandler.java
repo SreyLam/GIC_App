@@ -20,9 +20,9 @@ import java.util.Map;
 
 public class RequestHandler
 {
-    private Context context;
-    public RequestHandler(Context context) {
-        this.context = context;
+    private Context ctx;
+    public RequestHandler(Context ctx) {
+        this.ctx = ctx;
     }
 
     private RequestListener requestListener;
@@ -92,7 +92,7 @@ public class RequestHandler
 
         try
         {
-            RequestQueue mRequestQueue= VolleySingleton.getInstance().getRequestQueue();
+            RequestQueue mRequestQueue= VolleySingleton.getInstance(ctx).getRequestQueue();
             mRequestQueue.add(jsonObjectRequest);
         }
         catch (NullPointerException npe)

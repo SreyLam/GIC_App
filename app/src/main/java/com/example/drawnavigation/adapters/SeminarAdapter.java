@@ -17,12 +17,12 @@ import java.util.ArrayList;
 public class SeminarAdapter extends RecyclerView.Adapter<SeminarAdapter.AwardViewHolder>
 {
     private ArrayList<SeminarModel> seminarModelList=new ArrayList<>();
-    private Context context;
+    private Context ctx;
 
 
-    public SeminarAdapter(Context context)
+    public SeminarAdapter(Context ctx)
     {
-        this.context=context;
+        this.ctx=ctx;
     }
 
     public ArrayList<SeminarModel> getAwardModelList() {
@@ -35,7 +35,7 @@ public class SeminarAdapter extends RecyclerView.Adapter<SeminarAdapter.AwardVie
 
     @Override
     public AwardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new AwardViewHolder(LayoutInflater.from(context).inflate(R.layout.seminars_row_item,parent,false));
+        return new AwardViewHolder(LayoutInflater.from(ctx).inflate(R.layout.seminars_row_item,parent,false));
     }
 
     @Override
