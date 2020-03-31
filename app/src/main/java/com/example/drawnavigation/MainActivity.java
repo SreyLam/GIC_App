@@ -104,13 +104,13 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 drawer.closeDrawers();
                 break;
 
-            case R.id.nav_partnership:
-
-                FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
-                ft2.replace(R.id.container,  new PartnershipFragment());
-                ft2.commit();
-                drawer.closeDrawers();
-                break;
+//            case R.id.nav_partnership:
+//
+//                FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
+//                ft2.replace(R.id.container,  new PartnershipFragment());
+//                ft2.commit();
+//                drawer.closeDrawers();
+//                break;
         }
 //       drawer = findViewById(R.id.drawer_layout);
 //        drawer.closeDrawer();

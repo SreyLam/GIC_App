@@ -23,16 +23,8 @@
             android:layout_height="wrap_content"
 
             android:padding="10dp"
-            android:text="Response : "
             android:textColor="#000" />
 
-
-
     </LinearLayout>
-
-
-
-
-
 
 </FrameLayout>

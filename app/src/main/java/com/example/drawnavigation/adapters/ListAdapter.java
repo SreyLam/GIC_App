@@ -1,37 +1,49 @@
 package com.example.drawnavigation.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.bumptech.glide.request.RequestOptions;
 import com.example.drawnavigation.DataNote;
 import com.example.drawnavigation.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
 {
     private ArrayList<DataNote> dataList;
+    private Context mContext;
 
-    public ListAdapter(ArrayList<DataNote> data)
-    {
-        this.dataList = data;
+
+
+    public ListAdapter(Context context, ArrayList<DataNote> exampleList) {
+        mContext = context;
+        dataList = exampleList;
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
-        TextView textViewText;
-        TextView textViewComment;
-        TextView textViewDate;
+
+        public TextView textViewText;
+//        public TextView textViewComment;
+        public TextView textViewEnd_date;
+        public TextView textViewSart_date;
+        public ImageView imageView;
 
         public ViewHolder(View itemView)
         {
             super(itemView);
             this.textViewText = (TextView) itemView.findViewById(R.id.text);
-            this.textViewComment = (TextView) itemView.findViewById(R.id.comment);
-            this.textViewDate = (TextView) itemView.findViewById(R.id.date);
+//            this.textViewComment = (TextView) itemView.findViewById(R.id.comment);
+            this.textViewSart_date = (TextView) itemView.findViewById(R.id.start_date);
+            this.textViewEnd_date = (TextView) itemView.findViewById(R.id.end_date);
+            this.imageView = (ImageView) itemView.findViewById(R.id.image);
         }
     }
 
@@ -44,11 +56,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(ListAdapter.ViewHolder holder, final int position)
+    public void onBindViewHolder(ViewHolder holder, final int position)
     {
+        DataNote currentItem = dataList.get(position);
+        String imageUrl = currentItem.getImageUrl();
+
         holder.textViewText.setText(dataList.get(position).getText());
-        holder.textViewComment.setText(dataList.get(position).getComment());
-        holder.textViewDate.setText(dataList.get(position).getDate());
+//        holder.textViewComment.setText(dataList.get(position).getComment());
+        holder.textViewSart_date.setText(dataList.get(position).getStart_date());
+        holder.textViewEnd_date.setText(dataList.get(position).getEnd_date());
+        //holder.imageView.setImageResource(dataList.get(position).getImageUrl());
+        Picasso.get().load(imageUrl).fit().centerInside().into(holder.imageView);
 
         holder.itemView.setOnClickListener(new View.OnClickListener()
         {

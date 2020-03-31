@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.SeminarFragment">
+    tools:context=".fragment.DetailSeminarFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recycler_view1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none" />
@@ -15,14 +16,14 @@
         android:orientation="vertical">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="@dimen/title"
-        android:visibility="gone"
-        android:id="@+id/get_respone_data"
-        android:text="@string/empty_data" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="@dimen/title"
+            android:visibility="gone"
+            android:id="@+id/get_respone_data"
+            android:text="@string/empty_data" />
 
     </LinearLayout>
 

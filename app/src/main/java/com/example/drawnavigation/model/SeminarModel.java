@@ -2,57 +2,44 @@ package com.example.drawnavigation.model;
 
 public class SeminarModel {
 //    private int id;
-    private String name ;
-    private String image;
-    private String detail;
-    private String datetime;
+//String text;
+    String name ;
+    String start_date;
+    String end_date;
+    String imageUrl;
+    String detail;
 
-//    public SeminarModel(){
-//
-//    }
 
-    public SeminarModel() {
+    public SeminarModel(String name, String start_date, String end_date, String imageUrl) {
 //        this.id = id;
         this.name = name;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.imageUrl = imageUrl;
         this.detail = detail;
-        this.image = image;
-        this.datetime = datetime;
 
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public String getDetail() {
+
+
+    public String getStart_date()
+    {
+        return start_date;
+    }
+
+    public String getEnd_date() { return end_date; }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+    public String getDetail()
+    {
         return detail;
     }
-
-    public String getImage() {
-        return image;
-    }
-
-    public String getDatetime() {
-        return datetime;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDetail(String detail) { this.detail = detail; }
-
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-
-    public void setDatetime(String datetime) {
-        this.datetime = datetime;
-    }
-
-
 
 }

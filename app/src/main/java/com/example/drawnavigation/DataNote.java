@@ -4,13 +4,17 @@ public class DataNote {
 
     String text;
     String comment;
-    String date;
+    String start_date;
+    String end_date;
+    String imageUrl;
 
-    public DataNote(String text, String comment, String date)
+    public DataNote(String text, String start_date, String end_date, String imageUrl)
     {
         this.text = text;
         this.comment = comment;
-        this.date = date;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.imageUrl = imageUrl;
     }
 
     public String getText()
@@ -23,8 +27,14 @@ public class DataNote {
         return comment;
     }
 
-    public String getDate()
+    public String getStart_date()
     {
-        return date;
+        return start_date;
+    }
+
+    public String getEnd_date() { return end_date; }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 }

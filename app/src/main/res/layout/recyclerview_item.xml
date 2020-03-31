@@ -1,45 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dip"
     android:layout_marginRight="5dip"
-    android:foreground="?attr/selectableItemBackground">
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="#00DBD8D8"
+    android:layout_marginTop="5dp">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="5dp"
+        android:background="#fff"
         android:orientation="horizontal"
-        android:padding="5dip">
+        android:padding="8dp">
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="text" />
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/loading_shape"
+            android:scaleType="centerCrop" />
 
-        <TextView
-            android:id="@+id/comment"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/text"
-            android:layout_toLeftOf="@+id/date"
-            android:text="comment"
-            android:paddingLeft="5dip"
-            android:ellipsize="end"
-            android:maxLines="1"/>
+            android:layout_height="131dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="date" />
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seminars Title"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-    </RelativeLayout>
 
+            <TextView
+                android:id="@+id/start_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Datetime"
+                android:layout_marginLeft="190dp"/>
+            <TextView
+                android:id="@+id/end_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Datetime"
+                android:layout_marginLeft="190dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
 
 
 </androidx.cardview.widget.CardView>
