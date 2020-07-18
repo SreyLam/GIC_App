@@ -1,7 +1,7 @@
 package com.example.drawnavigation.model;
 
 public class SeminarModel {
-//    private int id;
+    //    private int id;
 //String text;
     String name ;
     String start_date;
@@ -10,7 +10,7 @@ public class SeminarModel {
     String detail;
 
 
-    public SeminarModel(String name, String start_date, String end_date, String imageUrl) {
+    public SeminarModel(String name, String start_date, String end_date, String imageUrl, String detail) {
 //        this.id = id;
         this.name = name;
         this.start_date = start_date;

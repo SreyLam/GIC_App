@@ -2,7 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     tools:ignore="UnusedNavigation">
 
     <item
@@ -17,6 +16,10 @@
         android:id="@+id/nav_partnership"
         android:icon="@drawable/ic_menu_partnership"
         android:title="@string/menu_partnership" />
+    <item
+        android:id="@+id/nav_partnershipwebview"
+        android:icon="@drawable/ic_menu_partnership"
+        android:title="@string/menu_partnerships" />
 
 
 </menu>

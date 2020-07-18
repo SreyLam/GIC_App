@@ -15,6 +15,7 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:icon">
 <!--        <activity android:name=".fragment.SeminarFragment"></activity>-->
+        <activity android:name=".Detail_SeminarActivity"></activity>
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
@@ -26,6 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".Detail_ScholarshipActivity" />
     </application>
 
 </manifest>

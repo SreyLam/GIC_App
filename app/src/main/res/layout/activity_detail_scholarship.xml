@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_marginLeft="5dip"
+android:layout_marginRight="5dip"
+android:foreground="?attr/selectableItemBackground"
+app:cardBackgroundColor="#00DBD8D8"
+android:layout_marginTop="10dp"
+android:padding="8dp"
+
+android:orientation="vertical">
+
+
+
+<TextView
+    android:id="@+id/title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="Seminars Title"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="243dp"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical">
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/description"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Seminars Detail"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold" />-->
+        <TextView
+            android:id="@+id/short_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="Scholarship Description"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="290dp"
+        android:layout_marginTop="5dp"
+        android:text="Datetime" />
+
+</LinearLayout>
+<!--    </LinearLayout>-->
+
+</LinearLayout>

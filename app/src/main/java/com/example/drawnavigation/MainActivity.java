@@ -1,5 +1,6 @@
 package com.example.drawnavigation;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.drawnavigation.extra.BaseActivity;
 import com.example.drawnavigation.fragment.PartnershipFragment;
+import com.example.drawnavigation.fragment.PartnershipsFragment;
 import com.example.drawnavigation.fragment.ScholarshipFragment;
 import com.example.drawnavigation.fragment.SeminarFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -43,6 +45,12 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private void init() {
         setToolbar();
         setNavigationDrawer();
+        //init first FragmentManager
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.container,  new SeminarFragment());
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
     private void setToolbar() {
@@ -104,13 +112,21 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 drawer.closeDrawers();
                 break;
 
-//            case R.id.nav_partnership:
-//
-//                FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
-//                ft2.replace(R.id.container,  new PartnershipFragment());
-//                ft2.commit();
-//                drawer.closeDrawers();
-//                break;
+
+            case R.id.nav_partnership:
+
+                FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
+                ft2.replace(R.id.container,  new PartnershipsFragment());
+                ft2.commit();
+                drawer.closeDrawers();
+                break;
+            case R.id.nav_partnershipwebview:
+
+                FragmentTransaction ft3 = getSupportFragmentManager().beginTransaction();
+                ft3.replace(R.id.container,  new PartnershipFragment());
+                ft3.commit();
+                drawer.closeDrawers();
+                break;
         }
 //       drawer = findViewById(R.id.drawer_layout);
 //        drawer.closeDrawer();

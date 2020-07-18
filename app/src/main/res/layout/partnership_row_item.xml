@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dip"
+    android:layout_marginRight="5dip"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="#00DBD8D8"
+    android:layout_marginTop="5dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="5dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="166dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/loading_shape"
+            android:baselineAligned="false"
+            android:scaleType="centerCrop"
+            android:text="Name of Partnerships" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="67dp"
+            android:layout_height="93dp"
+            android:layout_gravity="center"
+
+            android:layout_marginTop="5dp"
+            android:text="Logo" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

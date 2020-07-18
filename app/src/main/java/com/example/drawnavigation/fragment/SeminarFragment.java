@@ -1,9 +1,11 @@
 package com.example.drawnavigation.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.drawnavigation.Detail_SeminarActivity;
 import com.example.drawnavigation.R;
 import com.example.drawnavigation.adapters.SeminarAdapter;
 import com.example.drawnavigation.model.SeminarModel;
@@ -30,13 +33,22 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SeminarFragment extends Fragment {
+public class SeminarFragment extends Fragment implements SeminarAdapter.OnItemClickListener {
+    public static final String EXTRA_URL = "name";
+    public static final String EXTRA_URL4 = "image";
+    public static final String EXTRA_URL1 = "detail";
+    public static final String EXTRA_URL2 = "start_date";
+    public static final String EXTRA_URL3 = "end_date";
+
     private TextView mTextViewEmpty;
     private ImageView mImageViewEmpty;
     private RecyclerView mRecyclerView;
     private SeminarAdapter seminarAdapter;
     private ArrayList<SeminarModel> dataList;
     private RequestQueue mRequestQueue;
+    public String urlbase = "https://gic.itc.edu.kh/storage/";
+
+    //public String lala = "https://gic.itc.edu.kh/storage/events/March2020/R9n6TrTMAnIV57xal0MJ.jpg";
 
 
     public SeminarFragment(){}
@@ -60,6 +72,7 @@ public class SeminarFragment extends Fragment {
 
         sendGetRequest();
 
+
         return view;
     }
 
@@ -70,6 +83,21 @@ public class SeminarFragment extends Fragment {
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
+                    class OnItemClickListener implements SeminarAdapter.OnItemClickListener {
+                        @Override
+                        public void onItemClick(int position) {
+
+                            Intent detailIntent = new Intent(getActivity(), Detail_SeminarActivity.class);
+                            SeminarModel clickedItem = dataList.get(position);
+                            detailIntent.putExtra(EXTRA_URL, clickedItem.getName());
+                            detailIntent.putExtra(EXTRA_URL1, clickedItem.getDetail());
+                            detailIntent.putExtra(EXTRA_URL2, clickedItem.getStart_date());
+                            detailIntent.putExtra(EXTRA_URL3, clickedItem.getEnd_date());
+                            detailIntent.putExtra(EXTRA_URL4, clickedItem.getImageUrl());
+                            startActivity(detailIntent);
+                        }
+                    }
+
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
@@ -81,12 +109,17 @@ public class SeminarFragment extends Fragment {
                                 String name = hit.getString("name");
                                 String start_date = hit.getString("start_date");
                                 String end_date = hit.getString("end_date");
+                                String detail = hit.getString("detail");
                                 String imageUrl = hit.getString("image");
-                                dataList.add(new SeminarModel(name,start_date,end_date, imageUrl));
+                                String imageUrl1 = urlbase + imageUrl;
+
+                                dataList.add(new SeminarModel(name,start_date,end_date, imageUrl1, detail));
                             }
 
                             seminarAdapter = new SeminarAdapter(getActivity(), dataList);
                             mRecyclerView.setAdapter(seminarAdapter);
+                            seminarAdapter.setOnItemClickListener(new OnItemClickListener());
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -100,6 +133,14 @@ public class SeminarFragment extends Fragment {
         });
 
         mRequestQueue.add(request);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent detailIntent = new Intent(getActivity(), Detail_SeminarActivity.class);
+        SeminarModel clickedItem = dataList.get(position);
+        startActivity(detailIntent);
+
     }
 
 //    private RecyclerView recyclerView;

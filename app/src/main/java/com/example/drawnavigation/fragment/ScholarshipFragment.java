@@ -1,5 +1,6 @@
 package com.example.drawnavigation.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,30 +21,30 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.drawnavigation.DataNote;
+import com.example.drawnavigation.Detail_ScholarshipActivity;
 import com.example.drawnavigation.R;
-import com.example.drawnavigation.adapters.ListAdapter;
+import com.example.drawnavigation.adapters.ScholarshipAdapter;
+import com.example.drawnavigation.model.ScholarshipModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ScholarshipFragment extends Fragment {
+public class ScholarshipFragment extends Fragment implements ScholarshipAdapter.OnItemClickListener {
+    public static final String EXTRA_URL = "title";
+    //    public static final String EXTRA_URL3 = "description";
+    public static final String EXTRA_URL1 = "short_description";
+    public static final String EXTRA_URL2 = "date";
 
-    private TextView mTextViewEmpty;
-    private ProgressBar mProgressBarLoading;
-    private ImageView mImageViewEmpty;
     private RecyclerView mRecyclerView;
-    private ListAdapter mListadapter;
-    private ArrayList<DataNote> dataNote;
+    private ScholarshipAdapter scholarshipadapter;
+    private ArrayList<ScholarshipModel> dataList;
     private RequestQueue mRequestQueue;
 
 
@@ -57,14 +57,14 @@ public class ScholarshipFragment extends Fragment {
 
         View view  = inflater.inflate(R.layout.fragment_scholarship, container, false);
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview1);
 
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        dataNote = new ArrayList<>();
+        dataList = new ArrayList<>();
 
         mRequestQueue = Volley.newRequestQueue(getActivity());
 
@@ -77,28 +77,44 @@ public class ScholarshipFragment extends Fragment {
     private void sendGetRequest() {
 
         mRequestQueue = Volley.newRequestQueue(getActivity());
-        final String url = "https://gic.itc.edu.kh/api/events";
+        final String url = "https://gic.itc.edu.kh/api/v2/scholarships";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
+                    class OnItemClickListener implements ScholarshipAdapter.OnItemClickListener {
+                        @Override
+                        public void onItemClick(int position) {
+
+                            Intent detailIntent = new Intent(getActivity(), Detail_ScholarshipActivity.class);
+                            ScholarshipModel clickedItem = dataList.get(position);
+
+                            detailIntent.putExtra(EXTRA_URL, clickedItem.getTitle());
+//                            detailIntent.putExtra(EXTRA_URL1, clickedItem.getDescription());
+                            detailIntent.putExtra(EXTRA_URL1, clickedItem.getShort_description());
+                            detailIntent.putExtra(EXTRA_URL2, clickedItem.getDate());
+
+                            startActivity(detailIntent);
+                        }
+                    }
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
-
+//
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject hit = jsonArray.getJSONObject(i);
 
-                                String text = hit.getString("name");
-                                String start_date = hit.getString("start_date");
-                                String end_date = hit.getString("end_date");
-                                String imageUrl = hit.getString("image");
-                                dataNote.add(new DataNote(text,start_date,end_date, imageUrl));
+                                String title = hit.getString("title");
+                                String date = hit.getString("date");
+                                String short_description = hit.getString("short_description");
+//                                String description = hit.getString("description");
+                                dataList.add(new ScholarshipModel(title,date,short_description));
                             }
 
-                            mListadapter = new ListAdapter(getActivity(), dataNote);
-                            mRecyclerView.setAdapter(mListadapter);
-
+                            scholarshipadapter = new ScholarshipAdapter(getActivity(), dataList);
+                            mRecyclerView.setAdapter(scholarshipadapter);
+                            scholarshipadapter.setOnItemClickListener(new OnItemClickListener());
+//
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -113,4 +129,11 @@ public class ScholarshipFragment extends Fragment {
         mRequestQueue.add(request);
     }
 
+    @Override
+    public void onItemClick(int position) {
+        Intent detailIntent = new Intent(getActivity(), Detail_ScholarshipActivity.class);
+        ScholarshipModel clickedItem = dataList.get(position);
+        startActivity(detailIntent);
+
+    }
 }

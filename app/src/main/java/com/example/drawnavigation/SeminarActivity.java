@@ -31,7 +31,7 @@ public class SeminarActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        seminarAdapter = new SeminarAdapter(this);
+//        seminarAdapter = new SeminarAdapter(this);
         recyclerView.setAdapter(seminarAdapter);
         //   setRequestAPI();
 
