@@ -28,6 +28,7 @@
         </activity>
         <activity android:name=".MainActivity"/>
         <activity android:name=".Detail_ScholarshipActivity" />
+        <activity android:name=".Detail_PartnershipActivity" />
     </application>
 
 </manifest>

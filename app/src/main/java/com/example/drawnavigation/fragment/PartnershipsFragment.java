@@ -1,5 +1,6 @@
 package com.example.drawnavigation.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.drawnavigation.Detail_PartnershipActivity;
 import com.example.drawnavigation.R;
 import com.example.drawnavigation.adapters.PartnershipAdapter;
 import com.example.drawnavigation.model.PartnershipModel;
@@ -30,8 +32,8 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PartnershipsFragment extends Fragment {
-//    public static final String EXTRA_URL = "name";
+public class PartnershipsFragment extends Fragment implements PartnershipAdapter.OnItemClickListener{
+    public static final String EXTRA_URL = "website";
 //    public static final String EXTRA_URL4 = "image";
 //    public static final String EXTRA_URL1 = "detail";
 //    public static final String EXTRA_URL2 = "start_date";
@@ -84,15 +86,15 @@ public class PartnershipsFragment extends Fragment {
                         @Override
                         public void onItemClick(int position) {
 
-//                            Intent detailIntent = new Intent(getActivity(), Detail_SeminarActivity.class);
-//                            SeminarModel clickedItem = dataList.get(position);
-//                            detailIntent.putExtra(EXTRA_URL, clickedItem.getName());
+                            Intent detailIntent = new Intent(getActivity(), Detail_PartnershipActivity.class);
+                            PartnershipModel clickedItem = dataList.get(position);
+                            detailIntent.putExtra(EXTRA_URL, clickedItem.getWebsite());
 //                            detailIntent.putExtra(EXTRA_URL1, clickedItem.getDetail());
 //                            detailIntent.putExtra(EXTRA_URL2, clickedItem.getStart_date());
 //                            detailIntent.putExtra(EXTRA_URL3, clickedItem.getEnd_date());
 //                            detailIntent.putExtra(EXTRA_URL4, clickedItem.getImageUrl());
 //
-//                            startActivity(detailIntent);
+                            startActivity(detailIntent);
                         }
                     }
 
@@ -107,15 +109,15 @@ public class PartnershipsFragment extends Fragment {
                                 String name = hit.getString("name");
 
                                 String logo = hit.getString("logo");
-//                                String website = hit.getString("website");
+                                String website = hit.getString("website");
                                 String imageUrl1 = urlbase + logo;
 
-                                dataList.add(new PartnershipModel(name,imageUrl1));
+                                dataList.add(new PartnershipModel(name,imageUrl1,website));
                             }
 
                             partnershipAdapter = new PartnershipAdapter(getActivity(), dataList);
                             mRecyclerView.setAdapter(partnershipAdapter);
-//                            partnershipAdapter.setOnItemClickListener(new OnItemClickListener());
+                            partnershipAdapter.setOnItemClickListener(new OnItemClickListener());
 
 
                         } catch (JSONException e) {
@@ -132,12 +134,12 @@ public class PartnershipsFragment extends Fragment {
         mRequestQueue.add(request);
     }
 
-//    @Override
-//    public void onItemClick(int position) {
-//        Intent detailIntent = new Intent(getActivity(), Detail_PartnershipActivity.class);
-//        PartnershipModel clickedItem = dataList.get(position);
-//        startActivity(detailIntent);
-//
-//    }
+    @Override
+    public void onItemClick(int position) {
+        Intent detailIntent = new Intent(getActivity(), Detail_PartnershipActivity.class);
+        PartnershipModel clickedItem = dataList.get(position);
+        startActivity(detailIntent);
+
+    }
 
 }

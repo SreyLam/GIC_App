@@ -3,14 +3,14 @@ package com.example.drawnavigation.model;
 public class PartnershipModel {
     String name ;
     String logo;
-//    String website;
+    String website;
 
 
-    public PartnershipModel(String name, String logo) {
+    public PartnershipModel(String name, String logo, String website) {
 //        this.id = id;
         this.name = name;
         this.logo = logo;
-//        this.website = website;
+        this.website = website;
 
     }
 
@@ -20,7 +20,7 @@ public class PartnershipModel {
     }
 
     public String getLogo() { return logo; }
-//    public String getWebsite() { return website; }
+    public String getWebsite() { return website; }
 
 
 }

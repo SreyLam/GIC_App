@@ -1,6 +1,8 @@
 package com.example.drawnavigation.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +56,19 @@ public class PartnershipAdapter extends RecyclerView.Adapter<PartnershipAdapter.
 //        holder.textViewEnd_date.setText(dataList.get(position).getEnd_date());
         //holder.imageView.setImageResource(dataList.get(position).getImageUrl());
         Picasso.get().load(logo).fit().centerInside().into(holder.imageView);
+//        holder.itemView.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                String url = "https://www.univ-larochelle.fr/";
+//
+//                Intent i = new Intent(Intent.ACTION_VIEW);
+//                i.setData(Uri.parse(url));
+//                mContext.startActivity(i);
+//            }
+//
+//        });
 
     }
 
@@ -67,13 +82,13 @@ public class PartnershipAdapter extends RecyclerView.Adapter<PartnershipAdapter.
 
         public TextView textViewName;
         //        public TextView textViewEnd_date;
-//        public TextView textViewStart_date;
+        public TextView textViewWebsite;
         public ImageView imageView;
         public ViewHolder(View itemView)
         {
             super(itemView);
             this.textViewName = (TextView) itemView.findViewById(R.id.name);
-//            this.textViewStart_date = (TextView) itemView.findViewById(R.id.start_date);
+            this.textViewWebsite = (TextView) itemView.findViewById(R.id.website);
 //            this.textViewEnd_date = (TextView) itemView.findViewById(R.id.end_date);
             this.imageView = (ImageView) itemView.findViewById(R.id.logo);
 
