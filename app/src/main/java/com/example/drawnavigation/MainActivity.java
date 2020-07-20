@@ -2,6 +2,7 @@ package com.example.drawnavigation;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -66,8 +67,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         assert drawer != null;
-        toggle.setDrawerIndicatorEnabled(false);
-        drawer.setDrawerListener(toggle);
+        toggle.getDrawerArrowDrawable().setColor(Color.WHITE);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -146,6 +147,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     protected void onResume() {
         super.onResume();
+//        getSupportActionBar().setTitle();
         //  viewPager.setCurrentItem(0);
 //        sessionManager.checkLogin();
 

@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tool_bar"
@@ -18,7 +19,8 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:titleTextAppearance="@style/Toolbar.TitleText">
+            app:titleTextAppearance="@style/Toolbar.TitleText"
+            app:itemIconTint="#ffffff">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -26,7 +28,7 @@
 
                 <TextView
                     android:id="@+id/title"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:layout_weight="4"

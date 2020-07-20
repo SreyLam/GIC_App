@@ -28,7 +28,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -112,6 +115,9 @@ public class SeminarFragment extends Fragment implements SeminarAdapter.OnItemCl
                                 String detail = hit.getString("detail");
                                 String imageUrl = hit.getString("image");
                                 String imageUrl1 = urlbase + imageUrl;
+
+//                                SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//                                Date date = dateFormat.parse(start_date, );
 
                                 dataList.add(new SeminarModel(name,start_date,end_date, imageUrl1, detail));
                             }
