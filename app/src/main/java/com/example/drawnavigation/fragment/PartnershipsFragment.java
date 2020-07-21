@@ -45,7 +45,7 @@ public class PartnershipsFragment extends Fragment implements PartnershipAdapter
     private PartnershipAdapter partnershipAdapter;
     private ArrayList<PartnershipModel> dataList;
     private RequestQueue mRequestQueue;
-    public String urlbase = "https://gic.itc.edu.kh/storage/";
+    public String urlbase = "https://gic.itc.edu.kh/";
 
     //public String lala = "https://gic.itc.edu.kh/storage/events/March2020/R9n6TrTMAnIV57xal0MJ.jpg";
 

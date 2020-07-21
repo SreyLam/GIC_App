@@ -24,7 +24,6 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="false"
         app:headerLayout="@layout/nav_header_main"
-        app:itemIconTint="#ffffff"
         app:menu="@menu/navigator_menu" />
 
 
