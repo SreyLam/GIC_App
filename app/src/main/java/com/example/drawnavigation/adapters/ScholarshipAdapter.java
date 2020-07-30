@@ -3,12 +3,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.drawnavigation.R;
 import com.example.drawnavigation.model.ScholarshipModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -39,11 +41,13 @@ public class ScholarshipAdapter extends RecyclerView.Adapter<ScholarshipAdapter.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-//        ScholarshipModel currentItem = dataList.get(position);
+        ScholarshipModel currentItem = dataList.get(position);
+        String flag = currentItem.getFlag();
 
         holder.textViewTitle.setText(dataList.get(position).getTitle());
         holder.textViewDate.setText(dataList.get(position).getDate());
         holder.textViewShort_description.setText(dataList.get(position).getShort_description());
+        Picasso.get().load(flag).fit().centerInside().into(holder.flag);
 //        holder.textViewDescription.setText(dataList.get(position).getDescription());
 
     }
@@ -62,6 +66,7 @@ public class ScholarshipAdapter extends RecyclerView.Adapter<ScholarshipAdapter.
         public TextView textViewShort_description;
         public TextView textViewDescription;
         public TextView textViewDate;
+        public ImageView flag;
 
 
         public ViewHolder(View itemView) {
@@ -70,6 +75,7 @@ public class ScholarshipAdapter extends RecyclerView.Adapter<ScholarshipAdapter.
             this.textViewShort_description = (TextView) itemView.findViewById(R.id.short_description);
 //            this.textViewDescription = (TextView) itemView.findViewById(R.id.description);
             this.textViewDate = (TextView) itemView.findViewById(R.id.date);
+            this.flag = (ImageView) itemView.findViewById(R.id.flag);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {

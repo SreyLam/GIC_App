@@ -41,11 +41,12 @@ public class ScholarshipFragment extends Fragment implements ScholarshipAdapter.
     //    public static final String EXTRA_URL3 = "description";
     public static final String EXTRA_URL1 = "short_description";
     public static final String EXTRA_URL2 = "date";
-
+    public static final String EXTRA_URL4 = "flag";
     private RecyclerView mRecyclerView;
     private ScholarshipAdapter scholarshipadapter;
     private ArrayList<ScholarshipModel> dataList;
     private RequestQueue mRequestQueue;
+    public String urlbase = "https://gic.itc.edu.kh/";
 
 
     public ScholarshipFragment(){}
@@ -92,6 +93,7 @@ public class ScholarshipFragment extends Fragment implements ScholarshipAdapter.
 //                            detailIntent.putExtra(EXTRA_URL1, clickedItem.getDescription());
                             detailIntent.putExtra(EXTRA_URL1, clickedItem.getShort_description());
                             detailIntent.putExtra(EXTRA_URL2, clickedItem.getDate());
+                            detailIntent.putExtra(EXTRA_URL4, clickedItem.getFlag());
 
                             startActivity(detailIntent);
                         }
@@ -103,12 +105,14 @@ public class ScholarshipFragment extends Fragment implements ScholarshipAdapter.
 //
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject hit = jsonArray.getJSONObject(i);
-
+                                Integer id = hit.getInt("id");
                                 String title = hit.getString("title");
                                 String date = hit.getString("date");
                                 String short_description = hit.getString("short_description");
 //                                String description = hit.getString("description");
-                                dataList.add(new ScholarshipModel(title,date,short_description));
+                                String flag = hit.getString("flag");
+                                String flag1 = urlbase + flag;
+                                dataList.add(new ScholarshipModel(id,title,date,short_description, flag1));
                             }
 
                             scholarshipadapter = new ScholarshipAdapter(getActivity(), dataList);
