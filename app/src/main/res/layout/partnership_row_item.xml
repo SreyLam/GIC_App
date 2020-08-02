@@ -11,6 +11,8 @@
 
 
     <LinearLayout
+
+
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_marginTop="5dp"
@@ -20,6 +22,7 @@
 
         <TextView
             android:id="@+id/name"
+            android:autoLink="web"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -34,13 +37,12 @@
             android:background="#FFFFFF">
             <ImageView
                 android:id="@+id/logo"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="match_parent"
-                android:baselineAligned="false"
-                android:scaleType="centerCrop"
                 android:background="@drawable/loading_shape"
                 android:layout_marginTop="5dp"
                 android:text="Logo" />
+
         </LinearLayout>
 
     </LinearLayout>

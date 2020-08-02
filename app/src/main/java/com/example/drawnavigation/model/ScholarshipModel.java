@@ -1,7 +1,7 @@
 package com.example.drawnavigation.model;
 
 public class ScholarshipModel {
-    Integer id;
+    String id;
     String title ;
     String date;
     String short_description;
@@ -9,7 +9,7 @@ public class ScholarshipModel {
     String flag;
 
     //    String description;
-    public ScholarshipModel(Integer id,String title, String date, String short_description,String flag ) {
+    public ScholarshipModel(String id,String title, String date, String short_description,String flag ) {
         this.id = id;
         this.title = title;
         this.date = date;
@@ -19,7 +19,7 @@ public class ScholarshipModel {
 
     }
 
-    public Integer getId()
+    public String getId()
     {
         return id;
     }

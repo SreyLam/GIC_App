@@ -1,6 +1,7 @@
 package com.example.drawnavigation.fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,8 +60,7 @@ public class PartnershipsFragment extends Fragment implements PartnershipAdapter
         View view  = inflater.inflate(R.layout.fragment_partnerships, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-
-
+        mTextViewEmpty = view.findViewById(R.id.website);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
@@ -86,16 +86,23 @@ public class PartnershipsFragment extends Fragment implements PartnershipAdapter
                         @Override
                         public void onItemClick(int position) {
 
-                            Intent detailIntent = new Intent(getActivity(), Detail_PartnershipActivity.class);
+                            //Intent detailIntent = new Intent(getActivity(), Detail_PartnershipActivity.class);
                             PartnershipModel clickedItem = dataList.get(position);
-                            detailIntent.putExtra(EXTRA_URL, clickedItem.getWebsite());
+                            //detailIntent.putExtra(EXTRA_URL, clickedItem.getWebsite());
 //                            detailIntent.putExtra(EXTRA_URL1, clickedItem.getDetail());
 //                            detailIntent.putExtra(EXTRA_URL2, clickedItem.getStart_date());
 //                            detailIntent.putExtra(EXTRA_URL3, clickedItem.getEnd_date());
 //                            detailIntent.putExtra(EXTRA_URL4, clickedItem.getImageUrl());
+
+                            Intent openURL = new Intent(android.content.Intent.ACTION_VIEW);
+                            openURL.setData(Uri.parse(clickedItem.getWebsite()));
+                            startActivity(openURL);
+
 //
-                            startActivity(detailIntent);
+                            //startActivity(detailIntent);
                         }
+
+
                     }
 
                     @Override

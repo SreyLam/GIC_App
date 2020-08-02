@@ -9,6 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none" />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,6 +31,8 @@
             android:id="@+id/get_respone_data"
             android:text="@string/empty_data" />
 
+
     </LinearLayout>
+    </androidx.viewpager.widget.ViewPager>
 
 </FrameLayout>

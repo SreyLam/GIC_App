@@ -24,65 +24,71 @@
         android:textStyle="bold" />
 
     <LinearLayout
-        android:layout_width="260dp"
+        android:layout_width="250dp"
         android:layout_gravity="center"
-        android:layout_height="380dp">
+        android:layout_height="330dp">
         <ImageView
             android:id="@+id/image"
             android:layout_gravity="center"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:background="@drawable/loading_shape"
-            android:scaleType="centerCrop" />
+            android:background="@drawable/loading_shape" />
 
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="253dp"
+        android:layout_height="180dp"
         android:layout_marginTop="5dp"
         android:orientation="vertical">
-        <TextView
-            android:id="@+id/detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:text="Seminars Detail"
-            android:textSize="18sp"
-            android:textStyle="bold" />
 
-<!--        <WebView-->
+<!--        <TextView-->
 <!--            android:id="@+id/detail"-->
 <!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="100dp"-->
+<!--            android:layout_height="wrap_content"-->
 <!--            android:layout_marginTop="5dp"-->
 <!--            android:gravity="center"-->
 <!--            android:text="Seminars Detail"-->
 <!--            android:textSize="18sp"-->
-<!--            android:textStyle="bold">-->
+<!--            android:textStyle="bold" />-->
+        <WebView
+            android:id="@+id/detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Seminars Detail"/>
 
-<!--        </WebView>-->
+        <!--        <WebView-->
+        <!--            android:id="@+id/detail"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="100dp"-->
+        <!--            android:layout_marginTop="5dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="Seminars Detail"-->
+        <!--            android:textSize="18sp"-->
+        <!--            android:textStyle="bold">-->
 
-        <TextView
-            android:id="@+id/start_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="290dp"
-            android:layout_marginTop="5dp"
-            android:text="Datetime" />
+        <!--        </WebView>-->
 
-        <TextView
-            android:id="@+id/end_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="290dp"
-            android:layout_marginTop="5dp"
-            android:text="Datetime" />
+
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/start_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="290dp"
+        android:layout_marginTop="5dp"
+        android:text="Datetime" />
+
+    <TextView
+        android:id="@+id/end_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="290dp"
+        android:layout_marginTop="5dp"
+        android:text="Datetime" />
     <!--    </LinearLayout>-->
 
 </LinearLayout>

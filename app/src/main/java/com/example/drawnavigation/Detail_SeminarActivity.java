@@ -4,10 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import static com.example.drawnavigation.fragment.SeminarFragment.EXTRA_URL;
 import static com.example.drawnavigation.fragment.SeminarFragment.EXTRA_URL1;
@@ -33,8 +41,8 @@ public class Detail_SeminarActivity extends AppCompatActivity {
         TextView textViewCreator = findViewById(R.id.name);
         textViewCreator.setText(creatorName);
 
-        TextView textViewDetail = findViewById(R.id.detail);
-        textViewDetail.setText(creatorDetail);
+//        TextView textViewDetail = findViewById(R.id.detail);
+//        textViewDetail.setText(creatorDetail);
 
         TextView textViewStart_date = findViewById(R.id.start_date);
         textViewStart_date.setText(creatorStart_date);
@@ -45,6 +53,33 @@ public class Detail_SeminarActivity extends AppCompatActivity {
         ImageView imageView = findViewById(R.id.image);
 //        Picasso.with(this).load(imageUrl).fit.centerInside().into(imageView);
         Picasso.get().load(imageUrl).fit().centerInside().into(imageView);
+
+        final WebView webview = (WebView)this.findViewById(R.id.detail);
+        webview.getSettings().setJavaScriptEnabled(true);
+
+
+//        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+//                url, null, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                try {
+//                    textView.setText("Response is: "+ response.getString("id"));
+                    webview.loadDataWithBaseURL("",creatorDetail, "text/html", "UTF-8", "");
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//        }, new Response.ErrorListener() {
+//
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                textView.setText("That didn't work!");
+//            }
+//        });
+//
+//        requestQueue.add(jsonObjReq);
+
 
 
     }
